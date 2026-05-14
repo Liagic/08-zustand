@@ -1,7 +1,28 @@
 'use client';
+import { Metadata } from 'next';
 import css from '@/app/Home.module.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+
+export const metadata: Metadata = {
+  title: 'Not found',
+  description: 'Sorry, the page you are looking for does not exist.',
+  openGraph: {
+    title: 'Not found',
+    description: 'Sorry, the page you are looking for does not exist.',
+    url: '',
+    siteName: 'NoteHub',
+    images: [
+      {
+        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NoteHub logo on a blue and green gradient background.',
+      },
+    ],
+  },
+};
+
 const NotFound = () => {
   const router = useRouter();
   useEffect(() => {

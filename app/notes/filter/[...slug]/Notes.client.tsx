@@ -13,6 +13,7 @@ import NoteList from '@/components/NoteList/NoteList';
 import NoteForm from '@/components/NoteForm/NoteForm';
 import Loader from '@/components/Loader/Loader';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
+import Link from 'next/link';
 interface NotesClientProps {
   tag: string;
 }
@@ -45,16 +46,16 @@ function NotesClient({ tag }: NotesClientProps) {
             setPage={setCurrentPage}
           />
         )}
-        <button className={css.button} onClick={() => setIsFormOpen(true)}>
+        <Link className={css.button} href={'/notes/action/create'}>
           Create note +
-        </button>
+        </Link>
       </header>
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {isSuccess && notes.length > 0 && <NoteList notes={notes} />}
       {isFormOpen && (
         <Modal onClose={() => setIsFormOpen(false)}>
-          <NoteForm onClose={() => setIsFormOpen(false)} />
+          <NoteForm />
         </Modal>
       )}
     </div>

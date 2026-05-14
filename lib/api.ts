@@ -4,7 +4,7 @@ interface NoteHubResponse {
   notes: Note[];
   totalPages: number;
 }
-interface CreateNote {
+export interface CreateNote {
   title: string;
   content: string;
   tag: string;
