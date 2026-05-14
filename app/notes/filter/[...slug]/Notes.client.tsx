@@ -1,5 +1,3 @@
-'use client';
-
 import css from './Notes.module.css';
 import { fetchNotes } from '@/lib/api';
 import { useState } from 'react';
