@@ -6,10 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import { keepPreviousData } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import Pagination from '@/components/Pagination/Pagination';
-import Modal from '@/components/Modal/Modal';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import NoteList from '@/components/NoteList/NoteList';
-import NoteForm from '@/components/NoteForm/NoteForm';
 import Loader from '@/components/Loader/Loader';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import Link from 'next/link';
@@ -19,7 +17,7 @@ interface NotesClientProps {
 function NotesClient({ tag }: NotesClientProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const updateSearchQuery = useDebouncedCallback((query: string) => {
     setSearchQuery(query);
     setCurrentPage(1);
@@ -52,11 +50,6 @@ function NotesClient({ tag }: NotesClientProps) {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {isSuccess && notes.length > 0 && <NoteList notes={notes} />}
-      {isFormOpen && (
-        <Modal onClose={() => setIsFormOpen(false)}>
-          <NoteForm />
-        </Modal>
-      )}
     </div>
   );
 }
