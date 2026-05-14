@@ -44,6 +44,7 @@ export default function NoteForm() {
     onSuccess: () => {
       clearDraft();
       queryClient.invalidateQueries({ queryKey: ['notes'] });
+      router.push('/notes/filter/all');
     },
   });
 
@@ -53,9 +54,7 @@ export default function NoteForm() {
   ) => {
     mutation.mutate(values);
     actions.resetForm();
-    router.push('/notes/filter/all');
   };
-
   return (
     <Formik
       initialValues={initialValues}
