@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'A simple and convenient note-taking platform for creating, organizing, and storing your notes.',
     siteName: 'NoteHub',
-    url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+    url: 'https://08-zustand-seven-ruby.vercel.app/',
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
